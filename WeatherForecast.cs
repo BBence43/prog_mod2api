@@ -9,7 +9,7 @@ namespace ProgMod2_API
 
 
         public string Summary { get; set; }
-
+        
         public WeatherForecast(int id, string date, int temperatureC, string summary)
         {
             Id = id;

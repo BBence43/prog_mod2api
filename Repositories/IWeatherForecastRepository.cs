@@ -2,7 +2,8 @@
 {
     public interface IWeatherForecastRepository
     {
-        
+
+        Task<IEnumerable<WeatherForecast>> Get();
 
         Task CreateWeatherAsync(WeatherForecast item);
     }
