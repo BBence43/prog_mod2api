@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProgMod2_API.props" />
+</Project>
