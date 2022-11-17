@@ -1,6 +1,6 @@
 # prog_mod2api
 
-.NET Core 6.0 , (Futtatásához szükséges a .NET 6.0 SDK)
+.NET Core 6.0
 
 A program tartalmaz egy GET és POST API-t.
 Időjárás adatokat kérdezhetünk le és tárolhatunk el egy szöveges állományba, SWAGGER segítségével.
