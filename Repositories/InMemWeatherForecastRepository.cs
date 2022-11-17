@@ -1,20 +1,52 @@
-﻿namespace ProgMod2_API.Repositories
+﻿namespace ProgMod2_API.Repositories;
+
+public class InMemWeatherForecastRepository : IWeatherForecastRepository
 {
-    public class InMemWeatherForecastRepository : IWeatherForecastRepository
+    private readonly List<WeatherForecast> forecasts = new ();
+    
+    public InMemWeatherForecastRepository()
     {
-        private readonly List<WeatherForecast> forecasts = new ();
+        string multilineTextInput = "";
+        using var sr = new StreamReader("Data/weather.txt");
+        multilineTextInput = sr.ReadToEnd();
 
-        public async Task<IEnumerable<WeatherForecast>> Get()
+        string[] lines = multilineTextInput.Split(
+                    new[] { Environment.NewLine },
+                    StringSplitOptions.None);
+
+        foreach (var line in lines)
         {
-            return await Task.FromResult(forecasts);
-        }
+            string[] words = line.Split(';');
 
-       
-
-        public async Task CreateWeatherAsync(WeatherForecast item)
-        {
-            forecasts.Add(item);
-            await Task.CompletedTask;
+            forecasts.Add(
+                    new WeatherForecast(
+                        forecasts.Count,
+                        words[0],
+                        int.Parse(words[1]),
+                        words[3]
+                        )
+                    );
         }
     }
+
+    public IEnumerable<WeatherForecast> GetWeatherForecasts()
+    {
+        return forecasts;
+    }
+
+    
+
+    public void CreateWeatherForecast(WeatherForecastDto weatherForecast)
+    {
+        var item = new WeatherForecast()
+        {
+            Id = forecasts.Count,
+            Date = weatherForecast.Date,
+            TemperatureC = weatherForecast.TemperatureC,
+            Summary = weatherForecast.Summary,
+        };
+
+        forecasts.Add(item);
+    }
 }
+

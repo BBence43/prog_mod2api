@@ -3,8 +3,8 @@
     public interface IWeatherForecastRepository
     {
 
-        Task<IEnumerable<WeatherForecast>> Get();
+        IEnumerable<WeatherForecast> GetWeatherForecasts();
 
-        Task CreateWeatherAsync(WeatherForecast item);
+        void CreateWeatherForecast(WeatherForecastDto weatherForecast);
     }
 }
