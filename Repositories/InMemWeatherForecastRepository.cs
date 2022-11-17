@@ -5,7 +5,7 @@ namespace ProgMod2_API.Repositories;
 public class InMemWeatherForecastRepository : IWeatherForecastRepository
 {
     private readonly List<WeatherForecast> forecasts = new ();
-    
+
     public InMemWeatherForecastRepository()
     {
         string multilineTextInput = "";
@@ -29,6 +29,7 @@ public class InMemWeatherForecastRepository : IWeatherForecastRepository
                         )
                     );
         }
+        Console.WriteLine("File initialized!");
     }
 
     public IEnumerable<WeatherForecast> GetWeatherForecasts()
@@ -43,7 +44,7 @@ public class InMemWeatherForecastRepository : IWeatherForecastRepository
         var item = new WeatherForecast()
         {
             Id = forecasts.Count,
-            Date = weatherForecast.Date,
+            Date = DateTime.Now.ToString("yyyy.MM.dd"),
             TemperatureC = weatherForecast.TemperatureC,
             Summary = weatherForecast.Summary,
         };
@@ -52,8 +53,9 @@ public class InMemWeatherForecastRepository : IWeatherForecastRepository
         using (StreamWriter sw = File.AppendText(@"Data/weather.txt"))
         {
             sw.WriteLine();
-            sw.WriteLine(item.Date + ";" + item.TemperatureC + ";" + ((item.TemperatureC * 1.8) + 32) + ";" + item.Summary);
+            sw.Write(item.Date + ";" + item.TemperatureC + ";" + ((item.TemperatureC * 1.8) + 32) + ";" + item.Summary);
         }
+        Console.WriteLine("FILE UPDATED");
 
     }
 }
