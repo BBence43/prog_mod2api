@@ -1,4 +1,6 @@
-﻿namespace ProgMod2_API.Repositories;
+﻿using System.IO;
+
+namespace ProgMod2_API.Repositories;
 
 public class InMemWeatherForecastRepository : IWeatherForecastRepository
 {
@@ -47,6 +49,12 @@ public class InMemWeatherForecastRepository : IWeatherForecastRepository
         };
 
         forecasts.Add(item);
+        using (StreamWriter sw = File.AppendText(@"Data/weather.txt"))
+        {
+            sw.WriteLine();
+            sw.WriteLine(item.Date + ";" + item.TemperatureC + ";" + ((item.TemperatureC * 1.8) + 32) + ";" + item.Summary);
+        }
+
     }
 }
 

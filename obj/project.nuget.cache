@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kM+qiE1k9vczJ1ymoinE1yYQbLsT3ATHrk7HvG+ufhDGwu7vzY4sXRo5rp1+u+Utj7zQT+8Uxjvx9DBqSc9lMw==",
+  "dgSpecHash": "4OzAYNL/9VY7qgrTY4mkAyYQbVQlirc3NEbyblvrFLsPXEc3lQ37Co3dS6Tm27ZzddUZLNHwdG3qABhZvoDTDg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bence\\source\\repos\\ProgMod2_API\\ProgMod2_API\\ProgMod2_API.csproj",
+  "projectFilePath": "C:\\Users\\bence\\source\\repos\\BBence43\\prog_mod2api\\ProgMod2_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bence\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\bence\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
